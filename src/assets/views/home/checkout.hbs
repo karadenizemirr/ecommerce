@@ -1,0 +1,160 @@
+<div class="container margin_30">
+  <div class="page_header">
+    <h1>Üye Olarak Devam Et</h1>
+
+  </div>
+  <!-- /page_header -->
+  <div class="row">
+    {{#if userLogin}}
+      <div class=""></div>
+{{else}}
+        <div class="col-lg-4 col-md-6">
+          <div class="step first">
+            <h3>Kullanıcı Bilgileri ve Fatura Adresi</h3>
+            <ul class="nav nav-tabs" id="tab_checkout" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#tab_1" role="tab" aria-controls="tab_1" aria-selected="true">Misafir Kullanıcı</a>
+              </li>
+            </ul>
+            <div class="tab-content checkout">
+              <!--          Guest Form-->
+              <form id="checkout_form">
+                <div class="tab-pane fade show active" id="tab_1" role="tabpanel" aria-labelledby="tab_1">
+                  <div class="row no-gutters">
+                    <div class="col-6 form-group pr-1">
+                      <input type="text" class="form-control" placeholder="Ad" name="name">
+                    </div>
+                    <div class="col-6 form-group pl-1">
+                      <input type="text" class="form-control" placeholder="Soyad" name="surname">
+                    </div>
+                  </div>
+                  <!-- /row -->
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Adres" name="address">
+                  </div>
+                  <div class="row no-gutters">
+                    <div class="col-6 form-group pr-1">
+                      <input type="text" class="form-control" placeholder="Şehir" name="city">
+                    </div>
+                    <div class="col-6 form-group pl-1">
+                      <input type="text" class="form-control" placeholder="İlçe" name="district">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Posta Kodu" name="post_code">
+                  </div>
+                  <!-- /row -->
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Telefon Numarası" name="phone_number">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Mail Adresi" name="email">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="T.C Kimlik Nu." name="identify_number">
+                  </div>
+                  <!-- /other_addr_c -->
+                  <hr>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- /step -->
+        </div>
+      {{/if}}
+    <div class="col-lg-4 col-md-6">
+      <div class="step middle payments">
+        <h3>Ödeme ve Kargolama</h3>
+        <ul>
+          <li>
+            <label class="container_radio">Kredi Kartı<a href="#0" class="info" data-bs-toggle="modal" data-bs-target="#credit_cart_methot"></a>
+              <input type="radio" name="payment" checked>
+              <span class="checkmark"></span>
+            </label>
+          </li>
+          <li>
+            <label class="container_radio">Bank Transfer<a href="#0" class="info" data-bs-toggle="modal" data-bs-target="#bank_transfer_methot"></a>
+              <input type="radio" name="payment">
+              <span class="checkmark"></span>
+            </label>
+          </li>
+        </ul>
+        <h6 class="pb-2">Kargo Seçenekleri</h6>
+        <ul>
+          <li>
+            <label class="container_radio">Standart Kargolama<a href="#0" class="info" data-bs-toggle="modal" data-bs-target="#payments_method"></a>
+              <input type="radio" name="shipping" checked>
+              <span class="checkmark"></span>
+            </label>
+          </li>
+        </ul>
+
+      </div>
+      <!-- /step -->
+
+    </div>
+    <div class="col-lg-4 col-md-6">
+      <div class="step last">
+        <h3>Sipariş Özeti</h3>
+        <div class="box_general summary" id="checkout_card">
+          <ul id="checkout_product" >
+          </ul>
+          <ul>
+            <li class="clearfix"><em><strong>Kargo</strong></em> <span>0 TL</span></li>
+
+          </ul>
+          <div class="total clearfix" id="checkout_total_price">Toplam <span></span></div>
+
+          <button class="btn_1 full-width" id="payment_button">Ödeme Yap</button>
+        </div>
+        <!-- /box_general -->
+      </div>
+      <!-- /step -->
+    </div>
+  </div>
+  <!-- /row -->
+</div>
+
+<script>
+  // Other address Panel
+  $('#other_addr input').on("change", function (){
+    if(this.checked)
+      $('#other_addr_c').fadeIn('fast');
+    else
+      $('#other_addr_c').fadeOut('fast');
+  });
+
+  $(document).ready(function(){
+    $('#payment_button').on('click', function(){
+      var formData = $('#checkout_form').serializeArray()
+      var productData = localStorage.getItem('card')
+      let _formData = {}
+
+      formData.forEach(function(item){
+        var name = item.name
+        var value = item.value
+
+        _formData[name] = value
+      })
+
+      var post_data = {
+        form_data: _formData,
+        product_data: productData
+      }
+
+      console.log(post_data)
+
+      $.ajax({
+        url: '/user/checkout',
+        type: 'POST',
+        data: JSON.stringify(post_data),
+        success: function (data) {
+          if(data.status == 'success'){
+            localStorage.removeItem('card')
+          }
+        }
+      })
+
+    })
+  })
+</script>

@@ -1,0 +1,119 @@
+<div class="container margin_30">
+  <div><div></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 magnific-gallery">
+      <p>
+        <a href="{{imagePath product.image.path}}" title="Photo title" data-effect="mfp-zoom-in"><img src="{{imagePath product.image.path}}" alt="" class="img-fluid"></a>
+      </p>
+    </div>
+    <div class="col-lg-6" id="sidebar_fixed">
+      <!-- /page_header -->
+      <div class="prod_info">
+        <h1>{{product.name}}</h1>
+        <span class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i><em>4 reviews</em></span>
+        <p><small>SKU:{{product.id}} </small><br>Sed ex labitur adolescens scriptorem. Te saepe verear tibique sed. Et wisi ridens vix, lorem iudico blandit mel cu. Ex vel sint zril oportere, amet wisi aperiri te cum.</p>
+        <p>Vix patrioque cotidieque ad, iusto probatus volutpat id pri. Amet dicam omnesque at est, voluptua assueverit ut has, modo hinc nec ea. Quas nulla labore est ne, est in quod solet labitur, sit ne probo mandamus.</p>
+        <div class="prod_options">
+          {{#if product.isSuppressed}}
+            <div class="row">
+              <label class="col-xl-5 col-lg-5 col-md-6 col-6"><strong>Yazı</strong> <a href="#0" data-bs-toggle="modal" data-bs-target="#size-modal"><i class="ti-help-alt"></i></a></label>
+              <div class="col-xl-4 col-lg-5 col-md-6 col-6">
+                <div class="custom-select-form">
+                  <input type="text" class="form-control" name="text" autocomplete="off">
+                </div>
+              </div>
+            </div>
+          {{/if}}
+          <div class="row">
+            <label class="col-xl-5 col-lg-5  col-md-6 col-6"><strong>Adet</strong></label>
+            <div class="col-xl-4 col-lg-5 col-md-6 col-6">
+              <div class="numbers-row">
+                <input type="text" value="1" id="quantity_1" class="qty2" name="quantity_1">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-5 col-md-6">
+            {{#if product.campany_price}}
+                <div class="price_main"><span class="new_price">{{product.campany_price}}TL</span><span class="old_price">{{product.price}}TL</span></div>
+            {{else}}
+                <div class="price_main"><span class="new_price">{{product.price}}TL</span></div>
+            {{/if}}
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="btn_add_to_cart"><a href="#0" class="btn_1">Sepete Ekle</a></div>
+          </div>
+        </div>
+      </div>
+      <!-- /prod_info -->
+      <!-- /product_actions -->
+    </div>
+  </div>
+  <!-- /row -->
+</div>
+<!-- /container -->
+<!-- /tabs_product -->
+<div class="tab_content_wrapper">
+  <div class="container">
+    <div class="tab-content" role="tablist">
+      <div id="pane-A" class="card tab-pane fade show active" role="tabpanel" aria-labelledby="tab-A">
+        <div class="card-header" role="tab" id="heading-A">
+          <h5 class="mb-0">
+            <a class="collapsed" data-bs-toggle="collapse" href="#collapse-A" aria-expanded="false" aria-controls="collapse-A">
+              Description
+            </a>
+          </h5>
+        </div>
+        <div id="collapse-A" class="collapse" role="tabpanel" aria-labelledby="heading-A">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+                <h3>Ürün Detayları</h3>
+                {{{ product.description }}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /tab-content -->
+  </div>
+</div>
+
+<!-- /container -->
+
+<div class="feat">
+  <div class="container">
+    <ul>
+      <li>
+        <div class="box">
+          <i class="ti-gift"></i>
+          <div class="justify-content-center">
+            <h3>Ücretsiz Kargo</h3>
+            <p>Tüm alışverişlerde geçerli</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="box">
+          <i class="ti-wallet"></i>
+          <div class="justify-content-center">
+            <h3>Güvenli Alışveriş</h3>
+            <p>100% Güvenli Alışveriş</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="box">
+          <i class="ti-headphone-alt"></i>
+          <div class="justify-content-center">
+            <h3>24/7 Destek</h3>
+            <p>Sürekli destek</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

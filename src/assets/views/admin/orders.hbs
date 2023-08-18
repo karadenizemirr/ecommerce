@@ -1,0 +1,81 @@
+<div class="container margin_60_35">
+  <div class="row">
+    <div class="card p-4 bg-transparent">
+      <div class="card-title text-center">
+        <h1>
+          Tüm Siparişler
+        </h1>
+      </div>
+      <div class="card-body">
+        <table class="table table-hover table-bordered">
+          <thead>
+          <tr>
+            <th scope="col">Sipariş ID</th>
+            <th scope="col">Toplam Fiyatı</th>
+            <th scope="col">Ödeme</th>
+            <th scope="col">Kargo Kodu</th>
+            <th>Sipariş Durumu</th>
+            <th scope="col">İşlemler</th>
+          </tr>
+          </thead>
+          <tbody>
+          {{#each orders}}
+            <tr>
+              <th scope="row">{{this.id}}</th>
+              <td>{{this.total_price}}</td>
+              <td>
+                {{#if this.is_paid}}
+                  <span class="text-success">Ödendi</span>
+                {{else}}
+                  <span class="text-danger">Ödenmedi</span>
+                {{/if}}
+              </td>
+              <td>
+                <input type="text" name="tracking_code" id="tracking_code" class="form-control" value="{{this.tracking_code}}">
+              </td>
+              <td>
+                <select name="status" id="status" class="form-control" >
+                  <option value="onaylandı" {{#eq this.status 'onaylandı'}}selected{{/eq}}>Onaylandı</option>
+                  <option value="kargoya verildi" {{#eq this.status 'kargoya verildi'}}selected{{/eq}}>Kargoya Verildi</option>
+                  <option value="onaylanmadı" {{#eq this.status 'onaylanmadı'}}selected{{/eq}}>Onaylanmadı</option>
+                </select>
+              </td>
+              <input type="text" hidden id="order_update_id" value="{{this.id}}">
+              <td>
+                <a class="text-warning table-button" id="save_orders">Değişiklikleri Kaydet</a>
+                <a class="text-success table-button">Detaylar</a>
+                <a href="/admin/order/delete/{{id}}" class="text-danger table-button">Sil</a>
+              </td>
+            </tr>
+          {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('#save_orders').on('click', function(){
+      var tracking_code = $('#tracking_code').val()
+      var status = $('#status').val()
+      var id = $('#order_update_id').val()
+
+      const data = {
+        tracking_code: tracking_code,
+        status: status
+      }
+
+      $.ajax({
+        url: '/admin/order/update/' + id,
+        type: 'POST',
+        data: data,
+        success: function(response){
+          console.log(response)
+        }
+      })
+
+    })
+  })
+</script>

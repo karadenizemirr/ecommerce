@@ -1,0 +1,159 @@
+<header class="version_1">
+  <div class="layer"></div><!-- Mobile menu overlay mask -->
+  <div class="main_header">
+    <div class="container">
+      <div class="row small-gutters">
+        <div class="col-xl-3 col-lg-3 d-lg-flex align-items-center">
+          <div id="logo">
+            <a href="/"><img src="/public/img/logo.png" alt="" width="100" height="35"></a>
+          </div>
+        </div>
+        <nav class="col-xl-6 col-lg-7">
+          <a class="open_close" href="javascript:void(0);">
+            <div class="hamburger hamburger--spin">
+              <div class="hamburger-box">
+                <div class="hamburger-inner"></div>
+              </div>
+            </div>
+          </a>
+          <!-- Mobile menu button -->
+          <div class="main-menu text-end">
+            <div id="header_menu">
+              <a href="index.html"><img src="/public/img/logo-2.png" alt="" width="100"
+                                        height="35"></a>
+              <a href="#" class="open_close" id="close_in"><i class="ti-close"></i></a>
+            </div>
+            <ul>
+              <li>
+                <a href="/">Anasayfa</a>
+              </li>
+              <li>
+                <a href="/hakkimizda">Hakkımızda</a>
+              </li>
+              <li>
+                <a href="/contact">İletişim</a>
+              </li>
+            </ul>
+          </div>
+          <!--/main-menu -->
+        </nav>
+        <div class="col-xl-3 col-lg-2 d-lg-flex align-items-center justify-content-end text-end">
+          <a class="phone_top" href="tel://+905431830799"><strong><span>Bize Ulaşın </span>+90 543 183 0799</strong></a>
+        </div>
+      </div>
+      <!-- /row -->
+    </div>
+  </div>
+  <!-- /main_header -->
+
+  <div class="main_nav Sticky">
+    <div class="container">
+      <div class="row small-gutters">
+        <div class="col-xl-3 col-lg-3 col-md-3">
+          <nav class="categories">
+            <ul class="clearfix">
+              <li><span>
+											<a href="#">
+												<span class="hamburger hamburger--spin">
+													<span class="hamburger-box">
+														<span class="hamburger-inner"></span>
+													</span>
+												</span>
+												Kategoriler
+											</a>
+										</span>
+                <div id="menu">
+                  <ul>
+                    {{#each categories}}
+                      <li><span><a href="/category/{{this.name}}">{{this.name}}</a></span></li>
+                    {{/each}}
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="col-xl-6 col-lg-7 col-md-6 d-none d-md-block">
+          <div class="custom-search-input">
+            <form id="search_form">
+              <input type="text" placeholder="Binlerce ürün arasında ara">
+              <button type="submit"><i class="header-icon_search_custom"></i></button>
+            </form>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-2 col-md-3">
+          <ul class="top_tools">
+            <li id="_dropdown-card" >
+              <div class="dropdown dropdown-cart">
+                <a class="cart_bt" id="item_size"><strong>2</strong></a>
+                <div class="dropdown-menu">
+                  <ul id="card-list"></ul>
+                  <div class="total_drop">
+                    <div class="clearfix" id="total_price"><strong>Toplam</strong><span>0</span></div>
+                    <a href="cart.html" class="btn_1 outline">Sepeti Görüntüle</a><a
+                    href="/checkout" class="btn_1">Satın Al</a>
+                  </div>
+                </div>
+              </div>
+              <!-- /dropdown-cart-->
+            </li>
+            <li></li>
+            <li>
+              <div class="dropdown dropdown-access">
+                <a href="account.html" class="access_link"><span>Hesap</span></a>
+                <div class="dropdown-menu">
+                  <a href="/user/register" class="btn_1">Kayıt Ol - Giriş Yap</a>
+                  <ul>
+                    <li>
+                      <a href="track-order.html"><i class="ti-truck"></i>Kargo Takibi</a>
+                    </li>
+                    <li>
+                      <a href="/user"><i class="ti-user"></i>Profilim</a>
+                    </li>
+                    {{#if userLogin}}
+                      <li>
+                        <a href="account.html"><i class="ti-user"></i>Çıkış Yap</a>
+                      </li>
+                    {{/if}}
+                  </ul>
+                </div>
+              </div>
+              <!-- /dropdown-access-->
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="btn_search_mob"><span>Ara</span></a>
+            </li>
+            <li>
+              <a href="#menu" class="btn_cat_mob">
+                <div class="hamburger hamburger--spin" id="hamburger">
+                  <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                  </div>
+                </div>
+                Kategoriler
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- /row -->
+    </div>
+    <div class="search_mob_wp">
+      <input type="text" class="form-control" placeholder="Binlerce ürün arasında ara">
+      <input type="submit" class="btn_1 full-width" value="Search">
+    </div>
+    <!-- /search_mobile -->
+  </div>
+  <!-- /main_nav -->
+</header>
+
+<script>
+  $(document).ready(function(){
+    $('#search_form').submit(function (e) {
+      e.preventDefault();
+      var search = $(this).find('input[type=text]').val();
+      var url = '/search/' + search;
+      window.location.href = url;
+    })
+  })
+</script>

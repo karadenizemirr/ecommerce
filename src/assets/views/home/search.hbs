@@ -1,0 +1,16 @@
+<div class="container margin_30 text-center">
+  <div class="title">
+    <h1>
+      Arama Sonuçları
+    </h1>
+  </div>
+  <div class="content">
+    <ul >
+      {{#each products}}
+        <li style="list-style-type: none">
+          <a href="/product/detail/{{this.id}}">{{this.name}}</a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

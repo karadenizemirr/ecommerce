@@ -1,0 +1,48 @@
+<div class="top_banner">
+  <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.3)">
+    <div class="container">
+      <div class="breadcrumbs">
+      </div>
+      <h1>{{categoryName}}</h1>
+    </div>
+  </div>
+  <img src="/public/img/slice1.png" class="img-fluid" alt="">
+</div>
+<!-- /top_banner -->
+
+<div id="stick_here"></div>
+<!-- /toolbox -->
+
+<div class="container margin_30">
+  <div class="row small-gutters">
+    {{#each products}}
+    <div class="col-6 col-md-4 col-xl-3">
+      <div class="grid_item">
+        <figure>
+          <a href="/product/detail/{{this.id}}">
+            <img id="product_image" class="img-fluid lazy" src="{{imagePath this.image.path}}" data-src="{{imagePath this.image.path}}" alt="">
+          </a>
+        </figure>
+        <a href="/product/detail/{{this.id}}">
+          <h3 id="product_name" >{{this.name}}</h3>
+        </a>
+        <div class="price_box">
+          {{#if this.campany_price}}
+          <span id="product_price" class="new_price">{{this.campany_price}}</span>
+          <span class="old_price">{{this.price}}</span>
+          {{else}}
+          <span id="product_price" class="new_price">{{this.price}}</span>
+          {{/if}}
+        </div>
+        <ul>
+          <li><a class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left" title="Sepete Ekle" id="add_card"><i class="ti-shopping-cart"></i><span>Sepete Ekle</span></a></li>
+        </ul>
+      </div>
+      <!-- /grid_item -->
+    </div>
+    <!-- /col -->
+    {{/each}}
+    <!-- /col -->
+  </div>
+  <!-- /row -->
+</div>

@@ -1,0 +1,111 @@
+<div class="container margin_30">
+  <div class="page_header text-center">
+    <h1>Profilim</h1>
+  </div>
+  <!-- /page_header -->
+  <div class="row justify-content-center">
+    <div class="col-xl-3 col-lg-3 col-md-3">
+      <div class="box_account text-center">
+        <h3 class="client">İşlemler</h3>
+        <ul>
+          <li style="list-style-type: none" >
+            <a href="/user/orders" type="button" class="btn_1 bg-transparent text-black border full-width">Siparişlerim</a>
+          </li>
+          <li style="list-style-type: none" >
+            <a type="button" class="btn_1 bg-transparent text-black border full-width">Kargo Takip</a>
+          </li>
+        </ul>
+        <!-- /form_container -->
+      </div>
+      <!-- /row -->
+    </div>
+    <div class="col-xl-8 col-lg-8 col-md-8">
+      <div class="box_account">
+        <h3 class="new_client">Profilimi Güncelle</h3>
+        <form action="/user/register" method="post">
+          <div class="form_container">
+            <div class="form-group">
+              <input type="email" class="form-control" name="email" id="email_2" placeholder="Mail Adresi*" autocomplete="off" value="{{user.email}}">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" name="password" id="password_in_2" placeholder="Şifre*" autocomplete="off" value="{{user.password}}">
+            </div>
+            <hr>
+            <div class="private box">
+              <form action="">
+                <div class="row no-gutters">
+                  <div class="col-6 pr-1">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Adınız*" autocomplete="off" name="name" value="{{user.name}}">
+                    </div>
+                  </div>
+                  <div class="col-6 pl-1">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Soyadınız*" autocomplete="off" name="surname" value="{{user.surname}}">
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Tam Adres*" autocomplete="off" name="address" value="{{user.address}}">
+                    </div>
+                  </div>
+                </div>
+                <!-- /row -->
+                <div class="row no-gutters">
+                  <div class="col-6 pr-1">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Şehir*" autocomplete="off" name="city" value="{{user.city}}" >
+                    </div>
+                  </div>
+                  <div class="col-6 pl-1">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Posta Kodu*" autocomplete="off" name="post_code" value="{{user.zip_code}}" >
+                    </div>
+                  </div>
+                </div>
+                <!-- /row -->
+
+                <div class="row no-gutters">
+                  <div class="col-6 pl-1">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="İlçe*" autocomplete="off" name="district" value="{{user.district}}">
+                    </div>
+                  </div>
+                  <div class="col-6 pl-1">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Telefon Nu. *" autocomplete="off" name="phone_number" value="{{user.phone}}" >
+                    </div>
+                  </div>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col-12">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="T.C Kimlik Nu.*" autocomplete="off" name="identify_number" value="{{user.identify_number}}">
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <!-- /row -->
+
+            </div>
+            <hr>
+            <div class="text-center"><button type="submit" class="btn_1 full-width">Güncelle</button></div>
+          </div>
+        </form>
+        <!-- /form_container -->
+      </div>
+      <!-- /box_account -->
+    </div>
+  </div>
+  <!-- /row -->
+</div>
+
+<script>
+  // Client type Panel
+  $('input[name="client_type"]').on("click", function() {
+    var inputValue = $(this).attr("value");
+    var targetBox = $("." + inputValue);
+    $(".box").not(targetBox).hide();
+    $(targetBox).show();
+  });
+</script>

@@ -1,0 +1,151 @@
+    <div class="container margin_30">
+      <div class="page_header">
+        <h1>Kayıt Ol - Giriş Yap</h1>
+      </div>
+      <!-- /page_header -->
+      <div class="row justify-content-center">
+        <div class="col-xl-6 col-lg-6 col-md-8">
+          <div class="box_account">
+            <h3 class="client">Giriş Yap</h3>
+            <form action="/user/login" method="post">
+              <div class="form_container">
+                <div class="row no-gutters">
+                  <div class="col-lg-6 pr-lg-1">
+                    <a href="#0" class="social_bt facebook">Facebook ile Giriş Yap</a>
+                  </div>
+                  <div class="col-lg-6 pl-lg-1">
+                    <a href="#0" class="social_bt google">Google ile Giriş Yap</a>
+                  </div>
+                </div>
+                <div class="divider"></div>
+                <div class="form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Email Adresi*" autocomplete="off">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" name="password" id="password_in" value="" placeholder="Şifre*" autocomplete="off">
+                </div>
+                <div class="clearfix add_bottom_15">
+                  <div class="checkboxes float-start">
+                    <label class="container_check">Beni Hatırla
+                      <input type="checkbox">
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="float-end"><a id="forgot" href="javascript:void(0);">Şifremi Unuttum?</a></div>
+                </div>
+                <div class="text-center"><button type="submit" class="btn_1 full-width">Giriş Yap</button></div>
+                <div id="forgot_pw">
+                  <div class="form-group">
+                    <input type="email" class="form-control" name="email_forgot" id="email_forgot" placeholder="Type your email" autocomplete="off">
+                  </div>
+                  <p>A new password will be sent shortly.</p>
+                  <div class="text-center"><input type="submit" value="Reset Password" class="btn_1"></div>
+                </div>
+              </div>
+            </form>
+            <!-- /form_container -->
+          </div>
+          <!-- /row -->
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-8">
+          <div class="box_account">
+            <h3 class="new_client">Kayıt Ol</h3> <small class="float-right pt-2">* Zorunlu Alanlar</small>
+            <form action="/user/register" method="post">
+              <div class="form_container">
+                <div class="form-group">
+                  <input type="email" class="form-control" name="email" id="email_2" placeholder="Mail Adresi*" autocomplete="off">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" name="password" id="password_in_2" value="" placeholder="Şifre*" autocomplete="off">
+                </div>
+                <hr>
+                <div class="form-group">
+                  <label class="container_radio" style="display: inline-block; margin-right: 15px;">Bireysel
+                    <input type="radio" name="client_type" checked autocomplete="off">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <div class="private box">
+                  <form action="">
+                    <div class="row no-gutters">
+                      <div class="col-6 pr-1">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Adınız*" autocomplete="off" name="name">
+                        </div>
+                      </div>
+                      <div class="col-6 pl-1">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Soyadınız*" autocomplete="off" name="surname">
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Tam Adres*" autocomplete="off" name="address">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /row -->
+                    <div class="row no-gutters">
+                      <div class="col-6 pr-1">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Şehir*" autocomplete="off" name="city">
+                        </div>
+                      </div>
+                      <div class="col-6 pl-1">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Posta Kodu*" autocomplete="off" name="post_code">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /row -->
+
+                    <div class="row no-gutters">
+                      <div class="col-6 pl-1">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="İlçe*" autocomplete="off" name="district">
+                        </div>
+                      </div>
+                      <div class="col-6 pl-1">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Telefon Nu. *" autocomplete="off" name="phone_number">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row no-gutters">
+                      <div class="col-12">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="T.C Kimlik Nu.*" autocomplete="off" name="identify_number">
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                  <!-- /row -->
+
+                </div>
+                <hr>
+                <div class="form-group">
+                  <label class="container_check">Anladım <a href="#0">Kullanım Koşullarını Kabul Ediyorum.</a>
+                    <input type="checkbox" required>
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <div class="text-center"><button type="submit" class="btn_1 full-width">Kayıt Ol</button></div>
+              </div>
+            </form>
+            <!-- /form_container -->
+          </div>
+          <!-- /box_account -->
+        </div>
+      </div>
+      <!-- /row -->
+    </div>
+
+<script>
+  // Client type Panel
+  $('input[name="client_type"]').on("click", function() {
+    var inputValue = $(this).attr("value");
+    var targetBox = $("." + inputValue);
+    $(".box").not(targetBox).hide();
+    $(targetBox).show();
+  });
+</script>

@@ -1,0 +1,40 @@
+<div class="container margin_60_35">
+  <div class="card p-3 text-center bg-transparent">
+    <div class="card-title">
+      <h1>Tüm Siparişlerim</h1>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table">
+          <caption>Siparişlerim</caption>
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ödeme Durumu</th>
+            <th>Sipariş Durumu</th>
+            <th>Fiyat</th>
+          </tr>
+          </thead>
+          <tbody>
+          {{#each orders}}
+            <tr>
+              <td>
+                {{this.id}}
+              </td>
+              <td>
+                {{this.is_paid}}
+              </td>
+              <td>
+                {{this.status}}
+              </td>
+              <td>
+                {{this.total_price}} TL
+              </td>
+            </tr>
+          {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
